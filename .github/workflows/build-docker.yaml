@@ -1,0 +1,16 @@
+name: Build and publish iamge to Docker Hub
+on: [workflow_dispatch]
+
+jobs:
+  publish_iamges:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build ./api/ -t gunni3/devops-qr-api:latest
+
+      - name: push image to Docker Hub
+        run: |
+          docker push gunni3/devops-qr-api:latest
