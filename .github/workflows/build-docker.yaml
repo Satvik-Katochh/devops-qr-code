@@ -9,9 +9,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker image
-        run: docker build ./api/ -t gunni3/devops-qr-api:latest
+        run: |
+          docker build ./api/ -t gunni3/devops-qr-api:latest
+          docker build ./front-end-nextjs/ -t gunni3/devops-qr-frontend:latest
 
       - name: push image to Docker Hub
         run: |
           docker login -u gunni3 -p ${{ secrets.DOCKER_HUB_TOKEN }}
           docker push gunni3/devops-qr-api:latest
+          docker push gunni3/devops-qr-frontend:latest
