@@ -13,4 +13,5 @@ jobs:
 
       - name: push image to Docker Hub
         run: |
+          docker login -u gunni3 -p ${{ secrets.DOCKER_HUB_TOKEN }}
           docker push gunni3/devops-qr-api:latest
