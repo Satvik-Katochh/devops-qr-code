@@ -2,7 +2,7 @@ name: Build and publish image to Docker Hub
 on: [workflow_dispatch]
 
 jobs:
-  publish_iamges:
+  publish_images:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
